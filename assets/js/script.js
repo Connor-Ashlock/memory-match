@@ -1,6 +1,10 @@
 var gameCards = document.getElementById('gameCards');
 var statsSec = document.getElementById('stats-sec');
 var cardSecChildren = gameCards.children;
+var firstCardClicked = null;
+var secondCardClicked = null;
+var firstCardClasses = null;
+var secondCardClasses = null;
 
 var picArray = [
   "js-logo",
@@ -15,7 +19,6 @@ var picArray = [
 ]
 
 var addImage = 0;
-
 for (var i = 0; i < cardSecChildren.length; i++){
   var cardBack = document.createElement('div');
   cardBack.className = 'card-back';
@@ -36,6 +39,27 @@ function handleClick(event){
   if (event.target.className.indexOf("card-back") === -1) {
     return;
   }
-  console.log(event);
   event.target.classList.add('hidden');
+  if (!firstCardClicked) {
+    firstCardClicked = event.target;
+    firstCardClasses = firstCardClicked.previousElementSibling.className;
+  } else {
+    secondCardClicked = event.target;
+    secondCardClasses = secondCardClicked.previousElementSibling.className;
+    gameCards.removeEventListener('click', handleClick);
+    if (firstCardClasses === secondCardClasses){
+      console.log('match')
+      gameCards.addEventListener('click', handleClick);
+      firstCardClicked = null;
+      secondCardClicked = null;
+    } else {
+      setTimeout(function () {
+        firstCardClicked.classList.remove('hidden');
+        secondCardClicked.classList.remove('hidden');
+        gameCards.addEventListener('click', handleClick);
+        firstCardClicked = null;
+        secondCardClicked = null;
+      }, 1500);
+    }
+  }
 }
