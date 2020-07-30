@@ -5,6 +5,8 @@ var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardClasses = null;
 var secondCardClasses = null;
+var maxMatches = 9;
+var matches = 0;
 
 var picArray = [
   "js-logo",
@@ -48,10 +50,13 @@ function handleClick(event){
     secondCardClasses = secondCardClicked.previousElementSibling.className;
     gameCards.removeEventListener('click', handleClick);
     if (firstCardClasses === secondCardClasses){
-      console.log('match')
       gameCards.addEventListener('click', handleClick);
       firstCardClicked = null;
       secondCardClicked = null;
+      matches++;
+      if (matches === maxMatches){
+        document.querySelector('.win-modal').classList.remove('hidden');
+      }
     } else {
       setTimeout(function () {
         firstCardClicked.classList.remove('hidden');
