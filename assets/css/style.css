@@ -28,13 +28,17 @@ aside > div {
 
 .card {
   height: 25%;
+  position: relative;
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
   height: 100%;
-  width: 90%;
+  width: 100%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
 }
 
 .card-back {
@@ -55,4 +59,44 @@ aside > div {
 .center {
   justify-content: center;
   align-items: center;
+}
+
+.js-logo {
+  background-image: url("../images/js-logo.png")
+}
+
+.css-logo {
+  background-image: url("../images/css-logo.png")
+}
+
+.docker-logo {
+  background-image: url("../images/docker-logo.jpg")
+}
+
+.github-logo {
+  background-image: url("../images/github-logo.png")
+}
+
+.html-logo {
+  background-image: url("../images/html-logo.png")
+}
+
+.mysql-logo {
+  background-image: url("../images/mysql-logo.jpg")
+}
+
+.node-logo {
+  background-image: url("../images/node-logo.png")
+}
+
+.php-logo {
+  background-image: url("../images/php-logo.jpeg")
+}
+
+.react-logo {
+  background-image: url("../images/react-logo.png")
+}
+
+.hidden {
+  display: none;
 }
