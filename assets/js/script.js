@@ -13,15 +13,15 @@ var modal = document.querySelector('.win-modal');
 var resetButton = document.getElementById('resetButton');
 
 var picArray = [
-  "js-logo",
-  "css-logo",
-  "docker-logo",
-  "github-logo",
-  "html-logo",
-  "mysql-logo",
-  "node-logo",
-  "php-logo",
-  "react-logo"
+  "naruto",
+  "itachi",
+  "jiraiya",
+  "lee",
+  "madara",
+  "orochimaru",
+  "pain",
+  "sakura",
+  "sasuke"
 ]
 
 var addImage = 0;

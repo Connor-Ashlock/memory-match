@@ -4,6 +4,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: 'Ubuntu';
 }
 
 .head-row {
@@ -23,6 +24,10 @@ aside, main {
 
 aside > div {
   width: 80%;
+}
+
+img {
+  margin-top: 1.5%;
 }
 
 .card {
@@ -53,12 +58,13 @@ aside > div {
 #stats-sec {
   display: flex;
   align-items: center;
-  color: orange;
+  font-size: large;
+  color: rgb(250, 189, 8);
   text-align: center;
 }
 
 .stats-holder {
-  background-image: url("../images/Sharingan.jpg");
+  background-image: linear-gradient(rgba(98, 98, 98, 0.19), rgba(98, 98, 98, 0.19)), url("../images/Sharingan.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -67,7 +73,7 @@ aside > div {
 }
 
 .stats-holder2 {
-  background-image: url("../images/Rinnegan.png");
+  background-image: linear-gradient(rgba(98, 98, 98, 0.19), rgba(98, 98, 98, 0.19)), url("../images/Rinnegan.png");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -80,50 +86,50 @@ aside > div {
   align-items: center;
 }
 
-.js-logo {
+.naruto {
   background-image: url("../images/naruto.jpg");
   background-size: 170%;
   background-position: top;
 }
 
-.css-logo {
+.itachi {
   background-image: url("../images/itachi.jpg");
   background-size: cover;
   background-position: top;
 }
 
-.docker-logo {
+.jiraiya {
   background-image: url("../images/jiraiya.jpg");
   background-position: top;
 }
 
-.github-logo {
+.lee {
   background-image: url("../images/lee.jpg");
   background-position: top;
 }
 
-.html-logo {
+.madara {
   background-image: url("../images/madara.jpg");
   background-position: top;
 }
 
-.mysql-logo {
+.orochimaru {
   background-image: url("../images/orochimaru.jpg");
   background-position: center;
   background-size: 120%;
 }
 
-.node-logo {
+.pain {
   background-image: url("../images/pain.jpg");
   background-position: top;
 }
 
-.php-logo {
+.sakura {
   background-image: url("../images/sakura.png");
   background-position: top;
 }
 
-.react-logo {
+.sasuke {
   background-image: url("../images/Sasuke.jpg");
   background-position: top;
   background-size: 130%;
@@ -139,23 +145,32 @@ aside > div {
 }
 
 .win-modal-content {
-  background-color: indigo;
+  background-image: linear-gradient(rgba(98, 98, 98, 0.39), rgba(98, 98, 98, 0.39)), url('../images/naruto-win.jpg');
   color: white;
   width: 30%;
   border: 5px solid black;
-  text-align: center;
+  border-radius: 12px;
   font-size: 3rem;
-  padding: 15px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.modal-p {
+  margin: 5px;
 }
 
 #resetButton {
-  padding: 3%;
+  padding: 5%;
   font-size: 1rem;
   border-radius: 8px;
   border: none;
+  width: 35%;
   background: darkorange;
   color: white;
   box-shadow: 0 7px #999;
+  font-family: inherit;
 }
 
 #resetButton:hover {
