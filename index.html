@@ -19,7 +19,7 @@
           <div class="stats-holder center">Attempts</div>
           <div id="attempts" class="stats-holder center">0</div>
           <div class="stats-holder center">Accuracy</div>
-          <div id="accuracy" class="stats-holder center">0</div>
+          <div id="accuracy" class="stats-holder center">0%</div>
         </aside>
         <main id="gameCards" class="col-10 center">
           <div class="col-2"></div>
@@ -44,7 +44,10 @@
       </div>
     </div>
     <div class="win-modal center hidden">
-      <div class="win-modal-content">Congratulations<br />You have won!</div>
+      <div class="win-modal-content">
+        Congratulations<br />You have won!
+        <button id="resetButton">Play Again?</button>
+      </div>
     </div>
     <script src="./assets/js/script.js"></script>
   </body>

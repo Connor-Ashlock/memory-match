@@ -8,7 +8,9 @@ var secondCardClasses = null;
 var maxMatches = 9;
 var matches = 0;
 var attempts = 0;
-var gamesPlayed =0;
+var gamesPlayed = 0;
+var modal = document.querySelector('.win-modal');
+var resetButton = document.getElementById('resetButton');
 
 var picArray = [
   "js-logo",
@@ -39,6 +41,8 @@ for (var i = 0; i < cardSecChildren.length; i++){
 
 gameCards.addEventListener('click', handleClick);
 
+resetButton.addEventListener('click', resetGame);
+
 function handleClick(event){
   if (event.target.className.indexOf("card-back") === -1) {
     return;
@@ -58,7 +62,7 @@ function handleClick(event){
       matches++;
       attempts++;
       if (matches === maxMatches){
-        document.querySelector('.win-modal').classList.remove('hidden');
+        modal.classList.remove('hidden');
       }
     } else {
       setTimeout(function () {
@@ -81,5 +85,24 @@ function displayStats(){
 }
 
 function calculateAccuracy(attempts, matches){
+  if (!attempts){
+    return '0%';
+  }
   return Math.trunc((matches / attempts) * 100) + '%';
+}
+
+function resetGame(){
+  matches = 0;
+  attempts = 0;
+  gamesPlayed++;
+  displayStats();
+  resetCards();
+  modal.classList.add('hidden');
+}
+
+function resetCards(){
+  var hiddenCards = document.querySelectorAll('.card-back');
+  for (var i = 0; i < hiddenCards.length; i++){
+    hiddenCards[i].classList.remove('hidden');
+  }
 }
