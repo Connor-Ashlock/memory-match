@@ -22,9 +22,20 @@ var picArray = [
   "orochimaru",
   "pain",
   "sakura",
+  "sasuke",
+  "naruto",
+  "itachi",
+  "jiraiya",
+  "lee",
+  "madara",
+  "orochimaru",
+  "pain",
+  "sakura",
   "sasuke"
 ]
 
+
+shuffleCards(picArray);
 createCards();
 
 gameCards.addEventListener('click', handleClick);
@@ -38,14 +49,10 @@ function createCards(){
     cardBack.className = 'card-back';
     var cardFront = document.createElement('div');
     cardFront.className = 'card-front';
-    cardFront.classList.add(picArray[addImage]);
+    cardFront.classList.add(picArray[i]);
     cardContain.className = 'col-2 card'
     cardContain.append(cardFront, cardBack);
     gameCards.appendChild(cardContain);
-    addImage++;
-    if (addImage === 9) {
-      addImage = 0;
-    }
   }
 }
 
@@ -104,9 +111,20 @@ function resetGame(){
   displayStats();
   removeCards();
   modal.classList.add('hidden');
+  shuffleCards(picArray);
   createCards();
 }
 
 function removeCards(){
   gameCards.innerHTML = '';
+}
+
+function shuffleCards(array) {
+  for (var i = 0; i < array.length; i++){
+    var randomNum = Math.floor(Math.random() * array.length);
+    var store = array[i];
+    array[i] = array[randomNum];
+    array[randomNum] = store;
+  }
+  return array;
 }
