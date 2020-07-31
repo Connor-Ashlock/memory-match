@@ -7,6 +7,8 @@ var firstCardClasses = null;
 var secondCardClasses = null;
 var maxMatches = 9;
 var matches = 0;
+var attempts = 0;
+var gamesPlayed =0;
 
 var picArray = [
   "js-logo",
@@ -54,6 +56,7 @@ function handleClick(event){
       firstCardClicked = null;
       secondCardClicked = null;
       matches++;
+      attempts++;
       if (matches === maxMatches){
         document.querySelector('.win-modal').classList.remove('hidden');
       }
@@ -65,6 +68,18 @@ function handleClick(event){
         firstCardClicked = null;
         secondCardClicked = null;
       }, 1500);
+      attempts++;
     }
+    displayStats();
   }
+}
+
+function displayStats(){
+  document.getElementById('gamesPlayed').textContent = gamesPlayed;
+  document.getElementById('attempts').textContent = attempts;
+  document.getElementById('accuracy').textContent = calculateAccuracy(attempts, matches);
+}
+
+function calculateAccuracy(attempts, matches){
+  return Math.trunc((matches / attempts) * 100) + '%';
 }
