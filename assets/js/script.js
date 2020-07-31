@@ -11,6 +11,7 @@ var attempts = 0;
 var gamesPlayed = 0;
 var modal = document.querySelector('.win-modal');
 var resetButton = document.getElementById('resetButton');
+var addImage = 0;
 
 var picArray = [
   "naruto",
@@ -24,24 +25,29 @@ var picArray = [
   "sasuke"
 ]
 
-var addImage = 0;
-for (var i = 0; i < cardSecChildren.length; i++){
-  var cardBack = document.createElement('div');
-  cardBack.className = 'card-back';
-  var cardFront = document.createElement('div');
-  cardFront.className = 'card-front';
-  cardFront.classList.add(picArray[addImage]);
-  cardSecChildren[i].append(cardFront, cardBack);
-  cardSecChildren[i].classList.add('card');
-  addImage++;
-  if (addImage === 9) {
-    addImage = 0;
-  }
-}
+createCards();
 
 gameCards.addEventListener('click', handleClick);
 
 resetButton.addEventListener('click', resetGame);
+
+function createCards(){
+  for (var i = 0; i < 18; i++) {
+    var cardContain = document.createElement('div');
+    var cardBack = document.createElement('div');
+    cardBack.className = 'card-back';
+    var cardFront = document.createElement('div');
+    cardFront.className = 'card-front';
+    cardFront.classList.add(picArray[addImage]);
+    cardContain.className = 'col-2 card'
+    cardContain.append(cardFront, cardBack);
+    gameCards.appendChild(cardContain);
+    addImage++;
+    if (addImage === 9) {
+      addImage = 0;
+    }
+  }
+}
 
 function handleClick(event){
   if (event.target.className.indexOf("card-back") === -1) {
@@ -96,13 +102,11 @@ function resetGame(){
   attempts = 0;
   gamesPlayed++;
   displayStats();
-  resetCards();
+  removeCards();
   modal.classList.add('hidden');
+  createCards();
 }
 
-function resetCards(){
-  var hiddenCards = document.querySelectorAll('.card-back');
-  for (var i = 0; i < hiddenCards.length; i++){
-    hiddenCards[i].classList.remove('hidden');
-  }
+function removeCards(){
+  gameCards.innerHTML = '';
 }
