@@ -5,21 +5,22 @@
     <title>Memory Match Game</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/grid.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
       <div class="row head-row">
-        <header class=""><h1>(Memory Match Title)</h1></header>
+        <header><img src="./assets/images/naruto-game-logo.png" alt="Naruto Memory Game"></header>
       </div>
       <div class="row card-row center">
         <aside id="stats-sec" class="col-2 center">
-          <div class="stats-holder center">Stats</div>
-          <div class="stats-holder center">Games Played</div>
+          <div class="stats-holder center">STATS</div>
+          <div class="stats-holder2 center">GAMES PLAYED</div>
           <div id="gamesPlayed" class="stats-holder center">0</div>
-          <div class="stats-holder center">Attempts</div>
+          <div class="stats-holder2 center">ATTEMPTS</div>
           <div id="attempts" class="stats-holder center">0</div>
-          <div class="stats-holder center">Accuracy</div>
-          <div id="accuracy" class="stats-holder center">0</div>
+          <div class="stats-holder2 center">ACCURACY</div>
+          <div id="accuracy" class="stats-holder center">0%</div>
         </aside>
         <main id="gameCards" class="col-10 center">
           <div class="col-2"></div>
@@ -44,7 +45,10 @@
       </div>
     </div>
     <div class="win-modal center hidden">
-      <div class="win-modal-content">Congratulations<br />You have won!</div>
+      <div class="win-modal-content center">
+        <p class="modal-p">You Won<br />Believe It!</p>
+        <button id="resetButton">Play Again?</button>
+      </div>
     </div>
     <script src="./assets/js/script.js"></script>
   </body>

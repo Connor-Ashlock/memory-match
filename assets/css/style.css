@@ -1,9 +1,10 @@
 body {
   height: 100vh;
-  background-image: url("../images/lfz-background.jpg");
+  background-image: url("../images/konaha-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: 'Ubuntu';
 }
 
 .head-row {
@@ -25,6 +26,10 @@ aside > div {
   width: 80%;
 }
 
+img {
+  margin-top: 1.5%;
+}
+
 .card {
   height: 25%;
   position: relative;
@@ -32,8 +37,9 @@ aside > div {
 
 .card-front,
 .card-back {
-  height: 95%;
-  width: 95%;
+  height: 90%;
+  width: 90%;
+  border-radius: 12px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,19 +52,33 @@ aside > div {
 }
 
 .card-back {
-  background-image: url("../images/lfz-card.jpg");
+  background-image: url("../images/leaf-symbol.jpg");
 }
 
 #stats-sec {
   display: flex;
   align-items: center;
+  font-size: large;
+  color: rgb(250, 189, 8);
+  text-align: center;
 }
 
 .stats-holder {
-  background: green;
+  background-image: linear-gradient(rgba(98, 98, 98, 0.19), rgba(98, 98, 98, 0.19)), url("../images/Sharingan.jpg");
+  background-size: cover;
+  background-position: center;
   display: flex;
-  text-align: center;
   height: 11%;
+  border-radius: 12px;
+}
+
+.stats-holder2 {
+  background-image: linear-gradient(rgba(98, 98, 98, 0.19), rgba(98, 98, 98, 0.19)), url("../images/Rinnegan.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  height: 11%;
+  border-radius: 12px;
 }
 
 .center {
@@ -66,40 +86,53 @@ aside > div {
   align-items: center;
 }
 
-.js-logo {
-  background-image: url("../images/js-logo.png")
+.naruto {
+  background-image: url("../images/naruto.jpg");
+  background-size: 170%;
+  background-position: top;
 }
 
-.css-logo {
-  background-image: url("../images/css-logo.png")
+.itachi {
+  background-image: url("../images/itachi.jpg");
+  background-size: cover;
+  background-position: top;
 }
 
-.docker-logo {
-  background-image: url("../images/docker-logo.jpg")
+.jiraiya {
+  background-image: url("../images/jiraiya.jpg");
+  background-position: top;
 }
 
-.github-logo {
-  background-image: url("../images/github-logo.png")
+.lee {
+  background-image: url("../images/lee.jpg");
+  background-position: top;
 }
 
-.html-logo {
-  background-image: url("../images/html-logo.png")
+.madara {
+  background-image: url("../images/madara.jpg");
+  background-position: top;
 }
 
-.mysql-logo {
-  background-image: url("../images/mysql-logo.jpg")
+.orochimaru {
+  background-image: url("../images/orochimaru.jpg");
+  background-position: center;
+  background-size: 120%;
 }
 
-.node-logo {
-  background-image: url("../images/node-logo.png")
+.pain {
+  background-image: url("../images/pain.jpg");
+  background-position: top;
 }
 
-.php-logo {
-  background-image: url("../images/php-logo.jpeg")
+.sakura {
+  background-image: url("../images/sakura.png");
+  background-position: top;
 }
 
-.react-logo {
-  background-image: url("../images/react-logo.png")
+.sasuke {
+  background-image: url("../images/Sasuke.jpg");
+  background-position: top;
+  background-size: 130%;
 }
 
 .win-modal {
@@ -112,13 +145,46 @@ aside > div {
 }
 
 .win-modal-content {
-  background-color: indigo;
+  background-image: linear-gradient(rgba(98, 98, 98, 0.39), rgba(98, 98, 98, 0.39)), url('../images/naruto-win.jpg');
   color: white;
   width: 30%;
   border: 5px solid black;
-  text-align: center;
+  border-radius: 12px;
   font-size: 3rem;
-  padding: 40px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.modal-p {
+  margin: 5px;
+}
+
+#resetButton {
+  padding: 5%;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  width: 35%;
+  background: darkorange;
+  color: white;
+  box-shadow: 0 7px #999;
+  font-family: inherit;
+}
+
+#resetButton:hover {
+  cursor: pointer;
+}
+
+#resetButton:focus {
+  display: none;
+}
+
+#resetButton:active {
+  background-color: rgba(255, 140, 0, 0.408);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .hidden {
