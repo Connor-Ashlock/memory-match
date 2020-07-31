@@ -1,6 +1,6 @@
 body {
   height: 100vh;
-  background-image: url("../images/lfz-background.jpg");
+  background-image: url("../images/konaha-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -32,8 +32,9 @@ aside > div {
 
 .card-front,
 .card-back {
-  height: 95%;
-  width: 95%;
+  height: 90%;
+  width: 90%;
+  border-radius: 12px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,19 +47,32 @@ aside > div {
 }
 
 .card-back {
-  background-image: url("../images/lfz-card.jpg");
+  background-image: url("../images/leaf-symbol.jpg");
 }
 
 #stats-sec {
   display: flex;
   align-items: center;
+  color: orange;
+  text-align: center;
 }
 
 .stats-holder {
-  background: green;
+  background-image: url("../images/Sharingan.jpg");
+  background-size: cover;
+  background-position: center;
   display: flex;
-  text-align: center;
   height: 11%;
+  border-radius: 12px;
+}
+
+.stats-holder2 {
+  background-image: url("../images/Rinnegan.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  height: 11%;
+  border-radius: 12px;
 }
 
 .center {
@@ -67,39 +81,52 @@ aside > div {
 }
 
 .js-logo {
-  background-image: url("../images/js-logo.png")
+  background-image: url("../images/naruto.jpg");
+  background-size: 170%;
+  background-position: top;
 }
 
 .css-logo {
-  background-image: url("../images/css-logo.png")
+  background-image: url("../images/itachi.jpg");
+  background-size: cover;
+  background-position: top;
 }
 
 .docker-logo {
-  background-image: url("../images/docker-logo.jpg")
+  background-image: url("../images/jiraiya.jpg");
+  background-position: top;
 }
 
 .github-logo {
-  background-image: url("../images/github-logo.png")
+  background-image: url("../images/lee.jpg");
+  background-position: top;
 }
 
 .html-logo {
-  background-image: url("../images/html-logo.png")
+  background-image: url("../images/madara.jpg");
+  background-position: top;
 }
 
 .mysql-logo {
-  background-image: url("../images/mysql-logo.jpg")
+  background-image: url("../images/orochimaru.jpg");
+  background-position: center;
+  background-size: 120%;
 }
 
 .node-logo {
-  background-image: url("../images/node-logo.png")
+  background-image: url("../images/pain.jpg");
+  background-position: top;
 }
 
 .php-logo {
-  background-image: url("../images/php-logo.jpeg")
+  background-image: url("../images/sakura.png");
+  background-position: top;
 }
 
 .react-logo {
-  background-image: url("../images/react-logo.png")
+  background-image: url("../images/Sasuke.jpg");
+  background-position: top;
+  background-size: 130%;
 }
 
 .win-modal {
