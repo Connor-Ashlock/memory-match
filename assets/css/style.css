@@ -135,7 +135,7 @@ img {
   background-size: 130%;
 }
 
-.win-modal {
+.end-modal {
   position: fixed;
   top: 0;
   display: flex;
@@ -146,6 +146,20 @@ img {
 
 .win-modal-content {
   background-image: linear-gradient(rgba(98, 98, 98, 0.39), rgba(98, 98, 98, 0.39)), url('../images/naruto-win.jpg');
+  color: white;
+  width: 30%;
+  border: 5px solid black;
+  border-radius: 12px;
+  font-size: 3rem;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.lose-modal-content {
+  background-image: linear-gradient(rgba(98, 98, 98, 0.39), rgba(98, 98, 98, 0.39)), url('../images/naruto-sad.png');
+  background-size: cover;
   color: white;
   width: 30%;
   border: 5px solid black;

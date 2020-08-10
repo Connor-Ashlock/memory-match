@@ -9,9 +9,12 @@ var maxMatches = 9;
 var matches = 0;
 var attempts = 0;
 var gamesPlayed = 0;
-var modal = document.querySelector('.win-modal');
+var modal = document.querySelector('.end-modal');
+var modalContent = document.getElementById('modal-content');
 var resetButton = document.getElementById('resetButton');
 var addImage = 0;
+var missed = 0;
+var modalP = document.querySelector('.modal-p');
 
 var picArray = [
   "naruto",
@@ -75,7 +78,7 @@ function handleClick(event){
       matches++;
       attempts++;
       if (matches === maxMatches){
-        modal.classList.remove('hidden');
+        winGame();
       }
     } else {
       setTimeout(function () {
@@ -86,6 +89,11 @@ function handleClick(event){
         secondCardClicked = null;
       }, 1500);
       attempts++;
+      missed++;
+      console.log(missed);
+      if (missed === 10) {
+        loseGame();
+      }
     }
     displayStats();
   }
@@ -107,10 +115,12 @@ function calculateAccuracy(attempts, matches){
 function resetGame(){
   matches = 0;
   attempts = 0;
+  missed = 0;
   gamesPlayed++;
+  modalContent.className = 'center';
   displayStats();
   removeCards();
-  modal.classList.add('hidden');
+  removeModal();
   shuffleCards(picArray);
   createCards();
 }
@@ -127,4 +137,24 @@ function shuffleCards(array) {
     array[randomNum] = store;
   }
   return array;
+}
+
+function winGame (){
+  showModal();
+  modalP.textContent = 'You Won Believe It!';
+  modalContent.classList.add('win-modal-content');
+}
+
+function loseGame (){
+  showModal();
+  modalP.textContent = 'You Lost';
+  modalContent.classList.add('lose-modal-content');
+}
+
+function showModal (){
+  modal.classList.remove('hidden');
+}
+
+function removeModal (){
+  modal.classList.add('hidden');
 }
