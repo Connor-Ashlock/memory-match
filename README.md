@@ -7,7 +7,7 @@ A Naruto styled memory matching game in which a player attempts to match the ima
 - CSS3
 
 ## Live Demo
-
+https://connor-ashlock.github.io/memory-match/
 
 ## Features
 - Users can view cards.
