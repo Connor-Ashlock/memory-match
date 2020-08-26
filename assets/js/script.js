@@ -1,4 +1,4 @@
-var gameCards = document.getElementById('gameCards');
+var gameCards = document.getElementById('game-cards');
 var statsSec = document.getElementById('stats-sec');
 var cardSecChildren = gameCards.children;
 var firstCardClicked = null;
@@ -9,12 +9,15 @@ var maxMatches = 9;
 var matches = 0;
 var attempts = 0;
 var gamesPlayed = 0;
-var modal = document.querySelector('.end-modal');
-var modalContent = document.getElementById('modal-content');
-var resetButton = document.getElementById('resetButton');
-var addImage = 0;
+var endGameContainer = document.querySelector('.end-game-container');
+var endGameContent = document.getElementById('end-game-content');
+var resetButton = document.getElementById('reset-button');
 var missed = 0;
-var modalP = document.querySelector('.modal-p');
+var endGameText = document.querySelector('.end-game-text');
+var timer = document.getElementById('timer');
+var min = 3;
+var sec = 0;
+var wonGame = null;
 
 var picArray = [
   "naruto",
@@ -37,12 +40,7 @@ var picArray = [
   "sasuke"
 ]
 
-
-shuffleCards(picArray);
-createCards();
-
 gameCards.addEventListener('click', handleClick);
-
 resetButton.addEventListener('click', resetGame);
 
 function createCards(){
@@ -53,13 +51,16 @@ function createCards(){
     var cardFront = document.createElement('div');
     cardFront.className = 'card-front';
     cardFront.classList.add(picArray[i]);
-    cardContain.className = 'col-2 card'
+    cardContain.className = 'col-2 card-position center'
     cardContain.append(cardFront, cardBack);
     gameCards.appendChild(cardContain);
   }
 }
 
 function handleClick(event){
+  if (attempts === 0 && !firstCardClicked){
+    countDownOnClick();
+  }
   if (event.target.className.indexOf("card-back") === -1) {
     return;
   }
@@ -78,6 +79,7 @@ function handleClick(event){
       matches++;
       attempts++;
       if (matches === maxMatches){
+        wonGame = true;
         winGame();
       }
     } else {
@@ -90,8 +92,8 @@ function handleClick(event){
       }, 1500);
       attempts++;
       missed++;
-      console.log(missed);
       if (missed === 10) {
+        wonGame = false;
         loseGame();
       }
     }
@@ -99,25 +101,30 @@ function handleClick(event){
   }
 }
 
-function displayStats(){
+function displayStats() {
   document.getElementById('gamesPlayed').textContent = gamesPlayed;
   document.getElementById('attempts').textContent = attempts;
   document.getElementById('accuracy').textContent = calculateAccuracy(attempts, matches);
 }
 
-function calculateAccuracy(attempts, matches){
+function calculateAccuracy(attempts, matches) {
   if (!attempts){
     return '0%';
   }
   return Math.trunc((matches / attempts) * 100) + '%';
 }
 
-function resetGame(){
+function resetGame() {
   matches = 0;
   attempts = 0;
   missed = 0;
+  min = 3;
+  sec = 0;
+  wonGame = null;
+  sec = checkTime(sec);
+  timer.textContent = `${min}:${sec}`;
   gamesPlayed++;
-  modalContent.className = 'center';
+  endGameContent.className = 'center';
   displayStats();
   removeCards();
   removeModal();
@@ -125,7 +132,7 @@ function resetGame(){
   createCards();
 }
 
-function removeCards(){
+function removeCards() {
   gameCards.innerHTML = '';
 }
 
@@ -139,22 +146,66 @@ function shuffleCards(array) {
   return array;
 }
 
-function winGame (){
+function winGame() {
   showModal();
-  modalP.textContent = 'You Won Believe It!';
-  modalContent.classList.add('win-modal-content');
+  endGameText.textContent = 'You Won Believe It!';
+  endGameContent.classList.add('win-modal-content');
 }
 
-function loseGame (){
+function loseGame() {
   showModal();
-  modalP.textContent = 'You Lost';
-  modalContent.classList.add('lose-modal-content');
+  endGameText.textContent = 'You Lose Never Give Up!';
+  endGameContent.classList.add('lose-modal-content');
 }
 
-function showModal (){
-  modal.classList.remove('hidden');
+function showModal() {
+  endGameContainer.classList.remove('hidden');
 }
 
-function removeModal (){
-  modal.classList.add('hidden');
+function removeModal() {
+  endGameContainer.classList.add('hidden');
 }
+
+function checkTime(i) {
+  if (i < 10) {
+    i = '0' + i;
+  }
+  return i;
+}
+
+function countDownOnClick() {
+  var intId = setInterval(countDown, 1000);
+  function countDown() {
+    if (sec === '0' + 0) {
+      sec = 59;
+      min--;
+      sec = checkTime(sec);
+    } else {
+      sec--;
+      sec = checkTime(sec);
+    }
+    timer.textContent = `${min}:${sec}`;
+    if (timer.textContent === '0:00') {
+      clearInt();
+      loseGame();
+    }
+    if (wonGame === true) {
+      clearInt();
+    }
+    if (wonGame === false) {
+      clearInt();
+    }
+  }
+  function clearInt() {
+    clearInterval(intId);
+  }
+}
+
+function start() {
+  shuffleCards(picArray);
+  createCards();
+  sec = checkTime(sec)
+  timer.textContent = `${min}:${sec}`;
+}
+
+start();

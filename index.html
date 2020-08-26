@@ -4,33 +4,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Memory Match Game</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg=="
+    crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="container">
-      <header class="row head-row">
+    <div class="container-sm con-height">
+      <header class="row head-row mb-2">
         <img src="./assets/images/naruto-game-logo.png" alt="Naruto Memory Game" class="header-img">
       </header>
       <div class="row card-row center">
-        <aside id="stats-sec" class="col-2 center">
-          <div class="stats-holder center">STATS</div>
-          <div class="stats-holder2 center">GAMES PLAYED</div>
-          <div id="gamesPlayed" class="stats-holder center">0</div>
-          <div class="stats-holder2 center">ATTEMPTS</div>
-          <div id="attempts" class="stats-holder center">0</div>
-          <div class="stats-holder2 center">ACCURACY</div>
-          <div id="accuracy" class="stats-holder center">0%</div>
+        <aside id="stats-sec" class="col-md-2 center">
+          <div id="timer" class="stats-holder center col-14 col-md-12"></div>
+          <div class="stats-holder2 center col-14 col-md-12">GAMES PLAYED</div>
+          <div id="gamesPlayed" class="stats-holder center col-14 col-md-12">0</div>
+          <div class="stats-holder2 center col-14 col-md-12">ATTEMPTS</div>
+          <div id="attempts" class="stats-holder center col-14 col-md-12">0</div>
+          <div class="stats-holder2 center col-14 col-md-12">ACCURACY</div>
+          <div id="accuracy" class="stats-holder center col-14 col-md-12">0%</div>
         </aside>
-        <main id="gameCards" class="col-10 center">
-
-        </main>
+        <main id="game-cards" class="col col-md-10 center d-flex"></main>
       </div>
     </div>
-    <div class="end-modal center hidden">
-      <div id="modal-content" class="center">
-        <p class="modal-p">You Won<br />Believe It!</p>
-        <button id="resetButton">Play Again?</button>
+    <div class="end-game-container center hidden">
+      <div id="end-game-content" class="center">
+        <p class="end-game-text">You Won<br />Believe It!</p>
+        <button id="reset-button" class="d-flex center">Play Again?</button>
       </div>
     </div>
     <script src="./assets/js/script.js"></script>

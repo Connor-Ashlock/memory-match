@@ -4,7 +4,12 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Ubuntu';
+}
+
+.con-height {
+  height: 100%;
+  max-width: 1500px;
+  margin: auto;
 }
 
 .head-row {
@@ -17,7 +22,7 @@ body {
 }
 
 aside, main {
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -30,9 +35,9 @@ img {
   margin-top: 1.5%;
 }
 
-.card {
+.card-position {
   height: 25%;
-  position: relative;
+  display: flex;
 }
 
 .card-front,
@@ -58,9 +63,9 @@ img {
 #stats-sec {
   display: flex;
   align-items: center;
-  font-size: large;
   color: rgb(250, 189, 8);
   text-align: center;
+  font-family: 'Ubuntu';
 }
 
 .stats-holder {
@@ -88,7 +93,6 @@ img {
 
 .naruto {
   background-image: url("../images/naruto.jpg");
-  background-size: 170%;
   background-position: top;
 }
 
@@ -116,7 +120,6 @@ img {
 .orochimaru {
   background-image: url("../images/orochimaru.jpg");
   background-position: center;
-  background-size: 120%;
 }
 
 .pain {
@@ -132,10 +135,9 @@ img {
 .sasuke {
   background-image: url("../images/Sasuke.jpg");
   background-position: top;
-  background-size: 130%;
 }
 
-.end-modal {
+.end-game-container {
   position: fixed;
   top: 0;
   display: flex;
@@ -146,8 +148,9 @@ img {
 
 .win-modal-content {
   background-image: linear-gradient(rgba(98, 98, 98, 0.39), rgba(98, 98, 98, 0.39)), url('../images/naruto-win.jpg');
+  background-size: cover;
   color: white;
-  width: 30%;
+  width: 312px;
   border: 5px solid black;
   border-radius: 12px;
   font-size: 3rem;
@@ -155,13 +158,14 @@ img {
   display: flex;
   flex-direction: column;
   text-align: center;
+  font-family: 'Ubuntu';
 }
 
 .lose-modal-content {
   background-image: linear-gradient(rgba(98, 98, 98, 0.39), rgba(98, 98, 98, 0.39)), url('../images/naruto-sad.png');
   background-size: cover;
   color: white;
-  width: 30%;
+  width: 312px;
   border: 5px solid black;
   border-radius: 12px;
   font-size: 3rem;
@@ -169,33 +173,35 @@ img {
   display: flex;
   flex-direction: column;
   text-align: center;
+  font-family: 'Ubuntu';
 }
 
-.modal-p {
+.end-game-text {
   margin: 5px;
 }
 
-#resetButton {
-  padding: 5%;
+#reset-button {
+  padding: 10px;
   font-size: 1rem;
   border-radius: 8px;
   border: none;
-  width: 35%;
+  height: 60px;
+  width: 100px;
   background: darkorange;
   color: white;
   box-shadow: 0 7px #999;
-  font-family: inherit;
+  font-family: 'Ubuntu';
 }
 
-#resetButton:hover {
+#reset-button:hover {
   cursor: pointer;
 }
 
-#resetButton:focus {
+#reset-button:focus {
   display: none;
 }
 
-#resetButton:active {
+#reset-button:active {
   background-color: rgba(255, 140, 0, 0.408);
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -217,9 +223,23 @@ img {
 
 @media (max-width: 573px) {
   .header-img {
-    width: 93%;
+    width: 95%;
   }
   #stats-sec {
-    font-size: .2rem;
+    font-size: .5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  aside {
+    height: 12%;
+  }
+  .stats-holder,
+  .stats-holder2 {
+    height: 100%;
+  }
+  .col-14 {
+    max-width: 13.5%;
+    margin: 0 1px 0 1px;
   }
 }
