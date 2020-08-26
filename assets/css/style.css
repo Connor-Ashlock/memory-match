@@ -204,3 +204,22 @@ img {
 .hidden {
   display: none;
 }
+
+.header-img {
+  width: 72%;
+}
+
+@media (max-width: 813px) {
+  #stats-sec {
+    font-size: .8rem;
+  }
+}
+
+@media (max-width: 573px) {
+  .header-img {
+    width: 93%;
+  }
+  #stats-sec {
+    font-size: .2rem;
+  }
+}
